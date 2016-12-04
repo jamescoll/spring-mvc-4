@@ -22,11 +22,11 @@ public class USLocalDateFormatter implements Formatter<LocalDate> {
 		return LocalDate.parse(text, DateTimeFormatter.ofPattern(getPattern(locale)));
 	}
 	
-	private String getPattern(Locale locale) {
+	public static String getPattern(Locale locale) {
 		return isUnitedStates(locale) ? US_PATTERN : NORMAL_PATTERN;
 	}
 	
-	private boolean isUnitedStates(Locale locale) {
+	private static boolean isUnitedStates(Locale locale) {
 		
 		return Locale.US.getCountry().equals(locale.getCountry());
 	}
